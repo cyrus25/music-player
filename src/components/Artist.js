@@ -1,4 +1,5 @@
 import React from 'react';
+import Search from './Search';
 
 const Artist = props =>{
     if(!props.artist)
@@ -7,7 +8,7 @@ const Artist = props =>{
 
 
 return(
-    <div align>
+    <div>
       
         <h3>{name}</h3>
         <p>{followers.total} followers </p>

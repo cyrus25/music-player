@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-
+import Search from './Search';
 
 
 
@@ -35,13 +35,14 @@ else{
             const { id, name, album, preview_url } = track;
 
             return (
-              <div key={id} onClick={this.playAudio(preview_url)}>
+              <div  className='track' key={id} onClick={this.playAudio(preview_url)}>
                 <img 
                   src={album.images[0].url}
                   alt='track-image'
+                  className='track-image'
                   
                 />
-            <p>{name}</p>
+            <p className='track-text'>{name}</p>
               </div>
             )
           })
