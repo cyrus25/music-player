@@ -57,10 +57,12 @@ app.post('/signup',function(req,res){
      
     
 })
-app.post('/songs',function(req,res){
+/*app.post('/songs',function(req,res){
     const song=req.body;
-    const newsong=new song(song);
-})
+    const newSong=new song(song);
+    newsong.save()
+    .then()
+})*/
 
 
 app.post('/signin',(req,res)=>

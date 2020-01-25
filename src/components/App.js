@@ -5,6 +5,7 @@ import Artist from './Artist';
 import Search from './Search';
 import Tracks from './Tracks';
 import Songs from './Songs';
+import Header from './Header';
 const API_ADDRESS='https://spotify-api-wrapper.appspot.com';
 
 class App extends Component {
@@ -42,8 +43,8 @@ class App extends Component {
            
         return(
             <div>
-               
-                <SignUp />
+               <Header />
+                <Search />
                 
                 
             

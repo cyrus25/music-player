@@ -30581,7 +30581,57 @@ function (_Component) {
 
 var _default = Songs;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js"}],"components/SignUp.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js"}],"components/Hcss.css":[function(require,module,exports) {
+var reloadCSS = require('_css_loader');
+
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/Header.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+var _reactRouterDom = require("react-router-dom");
+
+var _Hcss = _interopRequireDefault(require("./Hcss"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  var style = {
+    display: 'inline-block',
+    margin: 10,
+    marginBottom: 30
+  };
+  return _react.default.createElement("div", {
+    className: "van"
+  }, _react.default.createElement("h3", {
+    style: style
+  }, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/"
+  }, "Home")), _react.default.createElement("div", {
+    className: "spacer"
+  }), _react.default.createElement("div", {
+    className: "item"
+  }, _react.default.createElement("ul", null, _react.default.createElement("li", null, _react.default.createElement("h3", {
+    style: style
+  }, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/SignIn"
+  }, "LoginIn"))), _react.default.createElement("li", null, _react.default.createElement("h3", {
+    style: style
+  }, _react.default.createElement(_reactRouterDom.Link, {
+    to: "/SignUp"
+  }, "SignUp"))))));
+};
+
+var _default = Header;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./Hcss":"components/Hcss.css"}],"components/SignUp.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30596,6 +30646,8 @@ var _axios = _interopRequireDefault(require("axios"));
 var _Songs = _interopRequireDefault(require("./Songs"));
 
 var _reactRouterDom = require("react-router-dom");
+
+var _Header = _interopRequireDefault(require("./Header"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -30687,24 +30739,24 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       console.log(this.state);
-      return _react.default.createElement("div", null, _react.default.createElement("form", {
+      return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement("h1", null, "SignUp"), _react.default.createElement("br", null), _react.default.createElement("form", {
         onSubmit: this.handleSubmit
       }, _react.default.createElement("input", {
         type: "text",
         name: "name",
         placeholder: "Enter name",
         onChange: this.handleChangeName
-      }), _react.default.createElement("input", {
+      }), _react.default.createElement("br", null), _react.default.createElement("input", {
         type: "email",
         name: "email",
         placeholder: "Enter email",
         onChange: this.handleChangeEmail
-      }), _react.default.createElement("input", {
+      }), _react.default.createElement("br", null), _react.default.createElement("input", {
         type: "password",
         name: "password",
         placeholder: "Enter password",
         onChange: this.handleChangePassword
-      }), _react.default.createElement("button", {
+      }), _react.default.createElement("br", null), _react.default.createElement("button", {
         type: "submit"
       }, "Register")), _react.default.createElement(_reactRouterDom.Link, {
         to: "/signin"
@@ -30717,7 +30769,7 @@ function (_React$Component) {
 
 var _default = SignUp;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","./Songs":"components/Songs.js","react-router-dom":"../node_modules/react-router-dom/es/index.js"}],"../node_modules/react-router/es/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","./Songs":"components/Songs.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./Header":"components/Header.js"}],"../node_modules/react-router/es/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -30819,6 +30871,8 @@ var _reactRouterDom = require("react-router-dom");
 
 var _reactRouter = require("react-router");
 
+var _Header = _interopRequireDefault(require("./Header"));
+
 var _SignUp = _interopRequireDefault(require("./SignUp"));
 
 var _axios = _interopRequireDefault(require("axios"));
@@ -30914,21 +30968,21 @@ function (_Component) {
   _createClass(SignIn, [{
     key: "render",
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement("form", {
+      return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement("h1", null, "LoginIn"), _react.default.createElement("br", null), _react.default.createElement("form", {
         onSubmit: this.handleSubmit
       }, _react.default.createElement("input", {
         type: "text",
         name: "email",
         placeholder: "Enter email",
         onChange: this.handleChangeEmail
-      }), _react.default.createElement("input", {
+      }), _react.default.createElement("br", null), _react.default.createElement("input", {
         type: "password",
         name: "password",
         placeholder: "Enter password",
         onChange: this.handleChangePassword
-      }), _react.default.createElement("button", {
+      }), _react.default.createElement("br", null), _react.default.createElement("button", {
         type: "submit"
-      }, "SignIn")), _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.Link, {
+      }, "LoginIn")), _react.default.createElement("div", null, _react.default.createElement(_reactRouterDom.Link, {
         to: {
           pathname: '/users',
           state: {
@@ -30944,8 +30998,65 @@ function (_Component) {
 }(_react.Component);
 
 var _default = SignIn;
+/*import React,{Component} from 'react';
+import SignUp from './SignUp';
+import Head from './Head'
+import axios from 'axios';
+
+class SignIn extends Component{
+   
+    state={email:'',password:''}
+    handleChangeEmail = event => {
+        this.setState({ email: event.target.value });
+      }
+      
+      handleChangePassword = event => {
+        this.setState({ password: event.target.value });
+      } 
+
+      handleSubmit = event => {
+        event.preventDefault();
+    
+        const user = {
+         
+          email: this.state.email,
+          password: this.state.password,
+        }
+      
+        axios.post('http://localhost:8000/signin',user)
+          .then(res => {
+                     console.log(res.data);
+          });
+        
+      }
+    render() {
+       
+      return (
+        <div>
+          <Head/>
+          <h1>LoginIn</h1>
+          <br></br>
+          <form onSubmit={this.handleSubmit}>
+            
+              
+              <input type="text" name="email" placeholder="Enter email" onChange={this.handleChangeEmail} />
+              <br></br>
+              <input type="password" name="password" placeholder="Enter password"  onChange={this.handleChangePassword} />
+              <br></br>
+            <button type="submit">LoginIn</button>
+          </form>
+        </div>
+      )
+    }
+
+
+
+}
+
+export default SignIn;*/
+
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","react-router":"../node_modules/react-router/es/index.js","./SignUp":"components/SignUp.js","axios":"../node_modules/axios/index.js"}],"components/Tracks.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","react-router":"../node_modules/react-router/es/index.js","./Header":"components/Header.js","./SignUp":"components/SignUp.js","axios":"../node_modules/axios/index.js"}],"components/Tracks.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31256,6 +31367,8 @@ var _Tracks = _interopRequireDefault(require("./Tracks"));
 
 var _Songs = _interopRequireDefault(require("./Songs"));
 
+var _Header = _interopRequireDefault(require("./Header"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
@@ -31318,7 +31431,7 @@ function (_Component) {
          .catch(error=>alert(error.message));
      }*/
     value: function render() {
-      return _react.default.createElement("div", null, _react.default.createElement(_SignUp.default, null));
+      return _react.default.createElement("div", null, _react.default.createElement(_Header.default, null), _react.default.createElement(_Search.default, null));
     }
   }]);
 
@@ -31327,7 +31440,7 @@ function (_Component) {
 
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","./SignUp":"components/SignUp.js","./SignIn":"components/SignIn.js","./Artist":"components/Artist.js","./Search":"components/Search.js","./Tracks":"components/Tracks.js","./Songs":"components/Songs.js"}],"components/Profile.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","./SignUp":"components/SignUp.js","./SignIn":"components/SignIn.js","./Artist":"components/Artist.js","./Search":"components/Search.js","./Tracks":"components/Tracks.js","./Songs":"components/Songs.js","./Header":"components/Header.js"}],"components/Profile.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -31381,8 +31494,8 @@ function (_Component) {
   _createClass(Profile, [{
     key: "render",
     value: function render() {
-      var id = this.props.location.state.id;
-      return _react.default.createElement("div", null, _react.default.createElement(_Search.default, null));
+      var name = this.props.location.state.id;
+      return _react.default.createElement("div", null, _react.default.createElement("p", null, name), _react.default.createElement(_Search.default, null));
     }
   }]);
 
@@ -31410,6 +31523,8 @@ var _SignIn = _interopRequireDefault(require("./components/SignIn"));
 
 var _Profile = _interopRequireDefault(require("./components/Profile"));
 
+var _SignUp = _interopRequireDefault(require("./components/SignUp"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 //import createBrowserHistory from 'history/createBrowserHistory';
@@ -31424,13 +31539,16 @@ _reactDom.default.render(_react.default.createElement(_reactRouterDom.Router, {
   path: "/signin",
   component: _SignIn.default
 }), _react.default.createElement(_reactRouterDom.Route, {
+  path: "/signup",
+  component: _SignUp.default
+}), _react.default.createElement(_reactRouterDom.Route, {
   path: "/users",
   component: _Profile.default
 }), _react.default.createElement(_reactRouterDom.Route, {
   path: "/users",
   component: _Profile.default
 }))), document.getElementById('root'));
-},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./index.css":"index.css","./history":"history.js","./components/App":"components/App.js","./components/SignIn":"components/SignIn.js","./components/Profile":"components/Profile.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","react-dom":"../node_modules/react-dom/index.js","react-router-dom":"../node_modules/react-router-dom/es/index.js","./index.css":"index.css","./history":"history.js","./components/App":"components/App.js","./components/SignIn":"components/SignIn.js","./components/Profile":"components/Profile.js","./components/SignUp":"components/SignUp.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -31458,7 +31576,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58530" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63488" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

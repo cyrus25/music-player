@@ -43,5 +43,28 @@
   }
 
   
+.van{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: green;
+    height: 56px;
+}
+.van{
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+.item ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.spacer{
+    flex:1;
+}
 
 /*# sourceMappingURL=/src.e31bb0bc.css.map */

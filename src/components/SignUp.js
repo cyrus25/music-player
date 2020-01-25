@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Search from './Songs';
 import {Link} from 'react-router-dom';
-
+import Header from './Header';
 
 class SignUp extends React.Component {
   state = {
@@ -56,12 +56,13 @@ class SignUp extends React.Component {
       console.log(this.state);
     return (
       <div>
-          
+          <Header />
+          <h1>SignUp</h1><br/>
         <form onSubmit={this.handleSubmit}>
           
-            <input type="text" name="name" placeholder="Enter name" onChange={this.handleChangeName} />
-            <input type="email" name="email" placeholder="Enter email" onChange={this.handleChangeEmail} />
-            <input type="password" name="password" placeholder="Enter password"  onChange={this.handleChangePassword} />
+            <input type="text" name="name" placeholder="Enter name" onChange={this.handleChangeName} /><br/>
+            <input type="email" name="email" placeholder="Enter email" onChange={this.handleChangeEmail} /><br/>
+            <input type="password" name="password" placeholder="Enter password"  onChange={this.handleChangePassword} /><br/>
 
          
              <button type="submit">Register</button>

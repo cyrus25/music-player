@@ -10,14 +10,14 @@ class Profile extends Component{
 render(){
 
 
-    const{id}=this.props.location.state;
+    const name=this.props.location.state.id;
 
    return(
 
 
               <div>
                  
-                   
+                   <p>{name}</p>
             
                    
                   

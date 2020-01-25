@@ -9,6 +9,7 @@ import history from './history';
 import App from './components/App';
 import SignIn from './components/SignIn';
 import Profile from './components/Profile';
+import SignUp from './components/SignUp';
 
 
 
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Switch>
             <Route exact={true} path='/' component={App} />
             <Route  path='/signin' component={SignIn} />
+            <Route  path='/signup' component={SignUp} />
             <Route path='/users' component={Profile} />
             <Route path='/users' component={Profile} />
            
