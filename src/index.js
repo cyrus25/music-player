@@ -1,9 +1,37 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Switch, Route, IndexRoute, hashHistory } from 'react-router-dom';
+//import createBrowserHistory from 'history/createBrowserHistory';
 import './index.css';
-import App from './components/App';
+import history from './history';
 
-ReactDOM.render(<App/>,document.getElementById('root'));
+
+import App from './components/App';
+import SignIn from './components/SignIn';
+import Profile from './components/Profile';
+
+
+
+//const history= createBrowserHistory;
+
+ReactDOM.render(
+    
+    <Router history={history}>
+   
+   
+        <Switch>
+            <Route exact={true} path='/' component={App} />
+            <Route  path='/signin' component={SignIn} />
+            <Route path='/users' component={Profile} />
+            <Route path='/users' component={Profile} />
+           
+           
+
+            
+        </Switch>
+       
+    </Router>,
+   document.getElementById('root'));
 
 
 

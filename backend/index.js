@@ -4,6 +4,7 @@ const port=8000;
 const db=require('./config/mongoose.js');
 
 const User=require('./models/user');
+const Song=require('./models/songs');
 const axios=require('axios');
 const cors = require('cors');
 
@@ -42,6 +43,8 @@ app.post('/signup',function(req,res){
    
    const newUser = new User(user);
 
+
+   console.log("han");
    
   newUser.save()
     .then(() => res.json(newUser))
@@ -54,44 +57,58 @@ app.post('/signup',function(req,res){
      
     
 })
-
-
-app.post('/signin',function(req,res){
-
- // find the user
- var p;
- User.findOne({email: req.body.email}, function(err, user){
-
-
-    
-    if (user){
-
-        // handle password which doesn't match
-        if (user.password != req.body.password){
-            p=0;
-        }
-
-        // handle session creation
-        res.cookie('user_id', user.id);
-        p=1;
-
-    }else{
-        // handle user not found
-
-        p=0;
-    }
-
-
-
-
-
-
-
-
+app.post('/songs',function(req,res){
+    const song=req.body;
+    const newsong=new song(song);
 })
-.then(res=>res.json(p))
-.catch(err => res.status(400).json('Error: ' + err));
+
+
+app.post('/signin',(req,res)=>
+{
+
  
+ 
+ 
+     User.findOne({email:req.body.email})
+     .then(user=>{
+
+          if(user){
+
+
+            if(req.body.password!=user.password){
+                return res.json({user,flag:0});
+            }
+            return res.json({user,flag:1});
+              
+
+          }else{
+              res.json({user,flag:0});
+          }
+          
+
+
+     })
+     .catch(err => res.status(400).json('Error: ' + err));
+    
+
+            
+
+
+        
+
+        
+
+
+
+
+      
+
+
+
+ 
+ 
+
+
 
 
 

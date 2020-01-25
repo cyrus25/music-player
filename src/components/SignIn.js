@@ -1,4 +1,9 @@
 import React,{Component} from 'react';
+import {Link} from 'react-router-dom';
+//import { History } from 'react-router';
+import {History} from 'react-router';
+import { withRouter } from 'react-router'
+
 import SignUp from './SignUp';
 
 import axios from 'axios';
@@ -7,8 +12,11 @@ class SignIn extends Component{
    
     state={
         email:'',
-        password:''
+        password:'',
+        p:null,
+        userid:'',
     }
+   
     handleChangeEmail = event => {
         this.setState({ email: event.target.value });
       }
@@ -25,14 +33,29 @@ class SignIn extends Component{
           email: this.state.email,
           password: this.state.password,
         }
-      
+       
         axios.post('http://localhost:8000/signin',user)
           .then(res => {
-                     console.log(res.data);
+            console.log(res);
+                     if(res.data.user&&res.data.flag==1)
+                     {
+                        
+                          console.log(res);
+               this.setState({userid:res.data.user._id});
+
+                         
+                        
+                     }
+                     else if(res.data.user&&res.data.flag==0){
+                      window.location = '/signin';
+                     }
+                     else if(res.data.user==null)
+                     window.location = '/';
+
           });
     
     
-          
+         
     
         
       }
@@ -43,6 +66,7 @@ class SignIn extends Component{
        
       return (
         <div>
+
           <form onSubmit={this.handleSubmit}>
             
               
@@ -52,6 +76,23 @@ class SignIn extends Component{
            
             <button type="submit">SignIn</button>
           </form>
+          <div>
+          <Link to={{
+      pathname: '/users',
+      state:{
+        id:this.state.userid,
+        name:this.state.name
+      }
+      
+     
+    }}> Go to your profile </Link>
+
+          </div>
+         
+
+
+          
+          
         </div>
       )
     }

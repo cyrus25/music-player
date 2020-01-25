@@ -23,7 +23,7 @@ class Search extends Component{
     fetch(`${API_ADDRESS}/artist/${this.state.artistQuery}`)
     .then(response => response.json())
     .then(json => {
-      //  console.log('json',json);
+        console.log('json',json);
 
         if(json.artists.total>0)
         {
@@ -33,7 +33,11 @@ class Search extends Component{
                 
              fetch(`${API_ADDRESS}/artist/${artist.id}/top-tracks`)
              .then(response=>response.json())
-             .then(json=>this.setState({tracks:json.tracks}))
+             .then(json=>{
+                 console.log(json.tracks);
+                 this.setState({tracks:json.tracks})
+                 
+             })
              .catch(error=>alert(error.message));
 
 

@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import Search from './Songs';
+import {Link} from 'react-router-dom';
+
 
 class SignUp extends React.Component {
   state = {
@@ -30,6 +32,7 @@ class SignUp extends React.Component {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password
+
     }
   // console.log(user);
     axios.post('http://localhost:8000/signup',user)
@@ -37,6 +40,8 @@ class SignUp extends React.Component {
         console.log(res.data);
         
       });
+
+      window.location = '/signin';
       
      
       
@@ -59,8 +64,10 @@ class SignUp extends React.Component {
             <input type="password" name="password" placeholder="Enter password"  onChange={this.handleChangePassword} />
 
          
-          <button type="submit">Register</button>
+             <button type="submit">Register</button>
         </form>
+        <Link to='/signin'></Link>
+        
         
 
       </div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import Search from './Search';
+import axios from 'axios';
 
 
 
@@ -16,6 +17,12 @@ class Tracks extends Component {
              
             audio.play();
            this.setState({ playing:true, audio});
+           axios.post('http://localhost:8000/songs',previewUrl)
+           .then(res => {
+            console.log(res.data);
+            
+          });
+           
         }
 else{
             this.state.audio.pause();
