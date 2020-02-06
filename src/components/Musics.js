@@ -6,18 +6,14 @@ import axios from 'axios';
 
 
 
-class Tracks extends Component {
+class Musics extends Component {
   
 
     state={ playing: false, audio:null };
-    playAudio = (previewUrl,track) => () => {
+    playAudio = previewUrl => () => {
 
-          
-      axios.post('http://localhost:8000/songs',track)
-      .then(res => {
-       console.log(res.data);
-       
-     });
+         console.log(previewUrl);
+     
 
         const audio = new Audio(previewUrl);
 
@@ -43,11 +39,12 @@ else{
     return (
       <div>
         {
+          
           tracks.map(track => {
-            const { id, name, album, preview_url } = track;
+            const { id, name, album, previewUrl } = track;
 
             return (
-              <div  className='track' key={id} onClick={this.playAudio(preview_url,track)}>
+              <div  className='track' key={id} onClick={this.playAudio(previewUrl)}>
                 <img 
                   src={album.images[0].url}
                   alt='track-image'
@@ -59,9 +56,10 @@ else{
             )
           })
         }
+        
       </div>
     )
   }
 }
 
-export default Tracks;
+export default Musics;

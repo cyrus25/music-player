@@ -1,25 +1,46 @@
 import React,{Component} from 'react';
-const axios = require("axios");
-
+import axios from 'axios';
+import Tracks from './Tracks';
+import Musics from './Musics';
 class Songs extends Component{
 
-   // state={message:'',redirect:false};
+
+
+      
+    state={ tracks:[] };
+
 
     componentDidMount(){
+                    
 
-/*
-           fetch('http://localhost:8000/users')
-           .then(res=>if(res.ok)this.setState({})res.text())
-           .then(res=>{this.setState({message: res})
-    });*/
 
-           
-       axios.get('http://localhost:8000/users')
-       .then(res=>{
-          console.log("good");
-       })
-       
-    
+
+       /* axios.get('http://localhost:8000/songss')
+        .then(res=>{
+            console.log(res.data);
+            this.setState({tracks: res.data});
+        })
+        .catch(err=>{
+            alert(err);
+        })*/
+
+        fetch('http://localhost:8000/songss')
+    .then(response => response.json())
+    .then(json => {
+        this.setState({tracks:json})
+        console.log('jsssson',json);
+    })
+        
+
+
+
+
+
+
+    }
+
+
+
 
            
           
@@ -29,25 +50,25 @@ class Songs extends Component{
 
 
 
-    }
+    
 
     render(){
-            /*if(this.state.redirect){
-                return <Redirect to=""/?>
-            }*/
-
+           
         return(
             <div>
                 
-                      
-                  
-                
+                <Musics tracks={this.state.tracks} />    
+           
+      
                 
             </div>
         )
 
 
     }
+
+
+
 
    
 

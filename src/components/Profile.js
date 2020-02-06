@@ -17,7 +17,7 @@ render(){
 
               <div>
                  
-                   <p>{name}</p>
+                  
             
                    
                   

@@ -76,6 +76,7 @@ app.post('/signin',(req,res)=>
 
           if(user){
 
+                        
 
             if(req.body.password!=user.password){
                 return res.json({user,flag:0});
@@ -86,7 +87,6 @@ app.post('/signin',(req,res)=>
           }else{
               res.json({user,flag:0});
           }
-          
 
 
      })
@@ -124,6 +124,40 @@ app.post('/signin',(req,res)=>
 /*app.get('/users',function(req,res){
     return res.json(newUser);
 })*/
+
+app.post('/songs',function(req,res){
+
+   console.log(req.body.album.images[0].url);
+
+    Song.create({
+        name:req.body.name,
+        id: req.body.id,
+        previewUrl:req.body.preview_url,
+        album:req.body.album
+    },function(err,newSong){
+        if(err)
+        {
+            console.log('error in adding song');
+            return;
+        }
+       // console.log('******',newContact);
+        return res.redirect('/');
+    });
+
+    
+ 
+
+
+})
+
+
+app.get('/songss',(req,res)=>{
+
+    
+    db.collection("songs").find().toArray(function(err, data) {
+        res.json(data);
+    });
+});
    
 
 

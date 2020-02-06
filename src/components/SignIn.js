@@ -1,8 +1,10 @@
 import React,{Component} from 'react';
 import {Link} from 'react-router-dom';
+import Songs from './Songs';
 //import { History } from 'react-router';
 import {History} from 'react-router';
 import { withRouter } from 'react-router'
+//import { Link, withRouter } from "react-router-dom";
 import Header from './Header';
 
 import SignUp from './SignUp';
@@ -38,20 +40,25 @@ class SignIn extends Component{
         axios.post('http://localhost:8000/signin',user)
           .then(res => {
             console.log(res);
-                     if(res.data.user&&res.data.flag==1)
-                     {
-                        
-                          console.log(res);
-               this.setState({userid:res.data.user._id});
+            if(res.data.user&&res.data.flag==1)
+            {
+               
+                 console.log(res);
+      this.setState({userid:res.data.user._id});
+console.log('yello');
 
-                         
-                        
-                     }
-                     else if(res.data.user&&res.data.flag==0){
-                      window.location = '/signin';
-                     }
-                     else if(res.data.user==null)
-                     window.location = '/';
+     window.location= '/users';
+
+      //props.history.push("/users");
+
+                
+               
+            }
+            else if(res.data.user&&res.data.flag==0){
+             window.location = '/signin';
+            }
+            else if(res.data.user==null)
+            window.location = '/';
 
           });
     
@@ -70,6 +77,8 @@ class SignIn extends Component{
             <Header />
             <h1>LoginIn</h1>
           <br></br>
+          
+         
           <form onSubmit={this.handleSubmit}>
             
               
@@ -79,7 +88,13 @@ class SignIn extends Component{
               <br></br>
             <button type="submit">LoginIn</button>
           </form>
+
+         
           <div>
+
+         
+
+
           <Link to={{
       pathname: '/users',
       state:{

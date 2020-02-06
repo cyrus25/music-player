@@ -24,8 +24,8 @@ ReactDOM.render(
             <Route exact={true} path='/' component={App} />
             <Route  path='/signin' component={SignIn} />
             <Route  path='/signup' component={SignUp} />
-            <Route path='/users' component={Profile} />
-            <Route path='/users' component={Profile} />
+            <Route  path='/users' component={Profile} />
+           
            
            
 

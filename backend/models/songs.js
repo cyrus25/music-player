@@ -10,7 +10,23 @@ const songSchema=new mongoose.Schema({
    previewUrl: {
        type: String,
        required: true
+   },
+   name:{
+       type:String,
+       required: true
+   },
+
+   album:{
+    images:[{url:{
+     type:String,
+     required:true
+     
+ }
+}]
+
    }
+
+   
 
 
 },{
